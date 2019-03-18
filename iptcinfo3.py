@@ -25,7 +25,7 @@ import sys
 import tempfile
 from struct import pack, unpack
 
-__version__ = '9.9.5-9'
+__version__ = '9.9.5-10'
 __author__ = 'Gulácsi, Tamás'
 
 SURELY_WRITE_CHARSET_INFO = False
@@ -431,7 +431,7 @@ def collect_adobe_parts(data):
                 out.append(pack("B", 0))
             out.append(pack("!L", size))
             out.append(var)
-            out = [''.join(str(out))]
+            out = [b''.join(str(out))]
             if size % 2 != 0 and len(out[0]) % 2 != 0:
                 out.append(pack("B", 0))
 
