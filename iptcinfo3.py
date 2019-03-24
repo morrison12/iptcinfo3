@@ -63,7 +63,7 @@ def smart_open(path, *args, **kwargs):
     try:
         yield fh
     finally:
-        if not hassattr(path, 'read'):
+        if not hasattr(path, 'read'):
             fh.close()
 
 
@@ -431,7 +431,7 @@ def collect_adobe_parts(data):
                 out.append(pack("B", 0))
             out.append(pack("!L", size))
             out.append(var)
-            out = [b''.join(str(out))]
+            out = [b''.join(out)]
             if size % 2 != 0 and len(out[0]) % 2 != 0:
                 out.append(pack("B", 0))
 
